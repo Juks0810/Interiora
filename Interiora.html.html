@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <title>INTERIORA CONSTRUCTIONE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: #ddd;
+            line-height: 1.6;
+        }
+
+        header {
+            position: relative;
+            height: 80vh;
+            min-height: 500px;
+            overflow: hidden;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 3;
+        }
+
+        header h1 {
+            font-size: 42px;
+            letter-spacing: 3px;
+        }
+
+        header p {
+            margin-top: 15px;
+            font-size: 22px;
+            color: #aaa;
+        }
+
+        section {
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 70px;
+            margin-bottom: 25px;
+            color: #fff;
+        }
+
+        .about-text p {
+            margin-bottom: 30px;
+            color: #ccc;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .service-box {
+            background: #1b1b1b;
+            padding: 35px;
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.9);
+        }
+
+        .service-box h3 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery div {
+            height: 180px;
+            background: #222;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .cta {
+            background: linear-gradient(180deg, #333333, #000000);
+            border-radius: 12px;
+            padding: 70px 30px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+        }
+
+        .cta h2 {
+            margin-bottom: 40px;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 55px;
+            color: #bbb;
+            font-size: 22px;
+        }
+
+        .cta a {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .cta a:hover {
+            background: #ddd;
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: #000;
+            color: #777777;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+    
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: #1b1b1b;
+            padding: 40px 20px;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.6);
+        }
+
+        .stat-box h3 {
+            font-size: 36px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .stat-box p {
+            color: #aaa;
+            letter-spacing: 1px;
+        }
+
+        .process {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .process-step {
+            background: #1b1b1b;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .process-step span {
+            font-size: 28px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .process-step h3 {
+            margin: 10px 0;
+            color: #fff;
+        }
+
+.galerija {
+  padding: 100px 10%;
+  background: #0d0d0d;
+  color: white;
+}
+
+.galerija h2 {
+  font-size: 48px;
+  margin-bottom: 50px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.gallery-item {
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #1a1a1a;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-img {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 40px;
+  right: 60px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 50px;
+  color: white;
+  cursor: pointer;
+  padding: 20px;
+  user-select: none;
+  transition: 0.3s;
+}
+
+.prev:hover, .next:hover {
+  color: #f1f1f1;
+  transform: translateY(-50%) scale(1.2);
+}
+
+.prev {
+  left: 40px;
+}
+
+.next {
+  right: 40px;
+}
+
+
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <video autoplay muted loop playsinline>
+            <source src="slike/7376-199627588_small.mp4" type="video/mp4">
+        </video>
+
+        <div class="header-content">
+            <h1>INTERIORA CONSTRUCTIONE</h1>
+            <p>Renovacije • Građevina • Interijeri</p>
+        </div>
+    </header>
+
+    <section>
+        <h2>O nama</h2>
+        <div class="about-text">
+            <p>
+                INTERIORA CONSTRUCTIONE j.d.o.o. je građevinska i renovacijska tvrtka specijalizirana za uređenje interijera i kompletna građevinska rješenja po mjeri klijenta. 
+                Naš fokus je na kvalitetnoj izvedbi, preciznosti i pouzdanosti, uz korištenje provjerenih materijala i suvremenih tehnika gradnje.
+            </p>
+            <p>
+                Bavimo se adaptacijama stanova i kuća, završnim građevinskim radovima, suhom gradnjom, uređenjem poslovnih prostora te kompletnim renovacijama „ključ u ruke“. 
+                Svakom projektu pristupamo individualno, s ciljem da funkcionalnost, estetika i dugotrajnost budu u savršenom balansu.
+            </p>
+            <p>
+                Naš tim čine iskusni i stručni majstori koji poštuju dogovorene rokove i potrebe klijenata, 
+                jer vjerujemo da je povjerenje temelj svakog uspješno realiziranog projekta.
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Zašto odabrati nas</h2>
+        <div class="stats">
+            <div class="stat-box">
+                <h3>3+</h3>
+                <p>Godina iskustva</p>
+            </div>
+            <div class="stat-box">
+                <h3>150+</h3>
+                <p>Završenih projekata</p>
+            </div>
+            <div class="stat-box">
+                <h3>100%</h3>
+                <p>Zadovoljnih klijenata</p>
+            </div>
+            <div class="stat-box">
+                <h3>0</h3>
+                <p>Kompromisa u kvaliteti</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Naše usluge</h2>
+        <div class="services-list">
+            <div class="service-box">
+                <h3>Renovacije</h3>
+                <p>Kompletne i djelomične renovacije stambenih i poslovnih prostora.</p>
+            </div>
+            <div class="service-box">
+                <h3>Građevinski radovi</h3>
+                <p>Zidarski radovi, knauf sustavi, adaptacije i završni građevinski radovi.</p>
+            </div>
+            <div class="service-box">
+                <h3>Uređenje interijera</h3>
+                <p>Moderni, funkcionalni i dugotrajni interijeri prilagođeni klijentu.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Naš proces rada</h2>
+        <div class="process">
+            <div class="process-step">
+                <span>01</span>
+                <h3>Konzultacije</h3>
+                <p>Razgovor, savjetovanje i razumijevanje potreba klijenta.</p>
+            </div>
+            <div class="process-step">
+                <span>02</span>
+                <h3>Planiranje</h3>
+                <p>Izrada rješenja, troškovnika i jasnog plana izvedbe.</p>
+            </div>
+            <div class="process-step">
+                <span>03</span>
+                <h3>Izvedba</h3>
+                <p>Precizna i čista realizacija uz poštivanje rokova.</p>
+            </div>
+            <div class="process-step">
+                <span>04</span>
+                <h3>Primopredaja</h3>
+                <p>Završna kontrola i zadovoljstvo klijenta.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="galerija">
+  <h2>Galerija radova</h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="slike/fasda i kamen 1.jpeg" alt="Projekt 1">
+    </div>
+
+    <div class="gallery-item">
+      <img src="slike/fasada i kamen 2.jpeg" alt="Projekt 2">
+    </div>
+
+    <div class="gallery-item">
+      <img src="slike/fasada i kamen 3.jpeg" alt="Projekt 3">
+    </div>
+
+    <div class="gallery-item">
+      <img src="slike/zid 1.jpeg" alt="Projekt 4">
+    </div>
+
+    <div class="gallery-item">
+      <img src="slike/zid 2.jpeg" alt="Projekt 5">
+    </div>
+
+    <div class="gallery-item">
+      <img src="slike/zid 3.jpeg" alt="Projekt 6">
+    </div>
+  
+
+  <div class="gallery-item">
+      <img src="slike/fasada i kamen 2.jpeg" alt="Projekt 6">
+    </div>
+  
+
+  <div class="gallery-item">
+      <img src="slike/knauf i vuna.jpeg" alt="Projekt 6">
+    </div>
+  </div>
+
+
+
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close">&times;</span>
+  <span class="prev">&#10094;</span>
+  <img class="lightbox-img" id="lightbox-img">
+  <span class="next">&#10095;</span>
+</div>
+
+
+    <section>
+        <div class="cta">
+            <h2>Zatražite ponudu</h2>
+            <p>
+                Imate projekt u planu? Kontaktirajte nas i pretvorimo vašu ideju u kvalitetno,
+                funkcionalno i dugotrajno rješenje uz profesionalnu izvedbu i jasne rokove.
+            </p>
+            <a href="mailto:info@interioraconstructione.hr?subject=Upit%20za%20ponudu">Kontaktirajte nas</a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Kontakt</h2>
+        <p><strong>Email:</strong> info@interioraconstructione.hr</p>
+        <p><strong>Telefon:</strong> +385 99 357 5698</p>
+        <p><strong>Lokacija:</strong> Zagrebačka ulica 13, 10370 Mala Ostrna</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 INTERIORA CONSTRUCTIONE. Sva prava pridržana.</p>
+    </footer>
+
+    <script>
+  const images = document.querySelectorAll(".gallery-item img");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  const closeBtn = document.querySelector(".close");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+
+  let currentIndex = 0;
+
+  function showImage(index) {
+    lightboxImg.src = images[index].src;
+    currentIndex = index;
+  }
+
+  images.forEach((img, index) => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      showImage(index);
+    });
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  });
+
+  prevBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "ArrowRight") nextBtn.click();
+      if (e.key === "ArrowLeft") prevBtn.click();
+      if (e.key === "Escape") lightbox.style.display = "none";
+    }
+  });
+</script>
+
+
+
+</body>
+</html>
